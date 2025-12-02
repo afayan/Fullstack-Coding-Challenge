@@ -19,9 +19,9 @@ export default function handleLogin(req, res){
         }
 
         const tokendata = {userid : result[0].userid, role : result[0].role, email : result[0].email}
-        console.log(tokendata);
+        console.log(tokendata, process.env.JWT_SECRET);
 
-        const token = jwt.sign(tokendata, process.env.BCRYPT)
+        const token = jwt.sign(tokendata, process.env.JWT_SECRET)
         res.json({success : true, jwtToken : token})
     })
 }

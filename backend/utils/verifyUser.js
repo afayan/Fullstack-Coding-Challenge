@@ -1,26 +1,29 @@
+import jwt from 'jsonwebtoken'
+
 export default function verifyToken(req, res, next){
 
-    const {email , password} = req.headers
+  console.log(req.headers);
+  
 
+    if (!req.headers['authorization']) {
+        return res.status(401).json({ message: 'Authentication header required' })
+    }
 
-    db.query("select * from users where email = ? ;", [email], (error, result)=>{
-        if (error) return res.json({success : false, message : "An error occurred"})
-        console.log(result);
+    console.log(req.headers['authorization']);
+    
+    const tokenToDecode = req.headers['authorization'].split(' ')[1];
+    console.log(tokenToDecode);
 
-        if (result.length == 0) {
-            return res.json({success : false, message : 'incorrect email'})
-        }
+    jwt.verify(tokenToDecode, process.env.JWT_SECRET, (err, decodedUser) => {
+    if (err) {
+      console.log(err);
+      
+      return res.status(403).json({ message: 'Invalid or expired token' }); 
+    }
+    req.user = decodedUser;
 
-        if (!bcrypt.compareSync(password, result[0].password)) {
-            return res.json({success : false, message : 'incorrect pasword'})
-        }
-
-        const tokendata = {userid : result[0].userid, role : result[0].role, email : result[0].email}
-        console.log(tokendata);
-
-        const token = jwt.sign(tokendata, process.env.BCRYPT)
-        res.json({success : true, jwtToken : token})
-    })
-
+    console.log("DECODED",decodedUser);
+    next()} 
+    )
 
 }
