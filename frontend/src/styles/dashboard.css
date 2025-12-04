@@ -1,11 +1,10 @@
 .listcontainer{
     display: flex;
     gap: 10px;
+    width: max-content;
 }
 
-.listcontainer div{
-    flex: 1;
-}
+
 
 .card{
     background-color: white;
@@ -28,6 +27,12 @@
     color: gray;
 }
 
+.card button{
+  font-size: 10px;
+  margin-block: 5px;
+  background-color: var(--verylightpink);
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -45,7 +50,7 @@
   padding: 25px;
   border-radius: 10px;
   text-align: center;
-  width: 100px !important;
+  width: 400px;
 }
 
 .stars {
@@ -60,7 +65,7 @@
 }
 
 .star.selected {
-  color: gold;
+  color: var(--darkpink);
 }
 
 .submit-rating,
@@ -74,11 +79,17 @@
 }
 
 .submit-rating {
-  background: #4caf50;
+  background: var(--darkpink);
   color: white;
+  margin: 0%;
 }
 
 .cancel-rating {
-  background: #f44336;
+  background: #bd0d00;
   color: white;
+  margin-inline: 0%;
+}
+
+.sidebar{
+  margin-top: 80px;
 }

@@ -80,15 +80,15 @@ function Stores({ stores, setsidebarinfo, admin, userdata }) {
          {admin && <i>Average Rating : {store.average}</i>}
 
           {admin && (
-            <button onClick={() => getRatings(store.storeid)}>See ratings</button>
+            <button className='storebutton' onClick={() => getRatings(store.storeid)}>See ratings</button>
           )}
 
           {!admin && (
-            <button onClick={() => openRatingModal(store.storeid)}>Rate</button>
+            <button className='storebutton' onClick={() => openRatingModal(store.storeid)}>Rate</button>
           )}
 
           {!admin && (
-            <button onClick={() => getmyratings(store.storeid)}>View My Ratings</button>
+            <button className='storebutton' onClick={() => getmyratings(store.storeid)}>View My Ratings</button>
           )}
         </div>
       ))}

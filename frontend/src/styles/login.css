@@ -2,4 +2,29 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 400px;
+    padding: 90px;
+    background-color: white;
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-50%);
+}
+
+.loginform input, .loginform button{
+    padding: 10px;
+    border: none;
+}
+
+.loginform button{
+    background-color: var(--darkpink);
+    margin: 0px;
+}
+
+.loginform a{
+    width: 100%;
+    text-align: center;
+}
+
+.storebutton{
+    display: inline;
 }

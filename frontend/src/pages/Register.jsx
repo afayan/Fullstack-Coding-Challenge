@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/login.css'
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import url from "../components/url";
 
 export default function Register() {
@@ -55,11 +55,13 @@ export default function Register() {
 
     return <>
     <div className="loginform">
+        <h1>Register</h1>
         <input ref={nameref} type="text" placeholder="name"/>
         <input ref={emailref} type="email" placeholder="email"/>
         <input ref={passwordRef} type="password" placeholder="password"/>
         <input ref={addressref} type="text" placeholder="address"/>
         <button onClick={handleRegister}>Submit</button>
+        <Link to={'/login'}>Already have an account? Login</Link>
     </div>
     </>
 }

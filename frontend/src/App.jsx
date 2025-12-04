@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import AddStore from './pages/AddStore'
 import Register from './pages/Register'
+import Updatepassword from './pages/Updatepassword'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Route path='/dashboard' element={< Dashboard/>}/>
       <Route path='/addstore' element={< AddStore/>}/>
       <Route path='/register' element={<Register />}/>
+      <Route path='/update' element={<Updatepassword/>}/>
     </Routes>
 
     </>

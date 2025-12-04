@@ -1,4 +1,5 @@
 import db from "../database/database.js"
+import bcrypt from 'bcrypt'
 
 export default function changePassword(req, res) {
     

@@ -45,9 +45,9 @@ function AddStore() {
 
   return (
     <div style={{ padding: "20px", maxWidth: "400px" }}>
-      <h2>Add Store</h2>
 
-      <form onSubmit={addStore}>
+      <form className="loginform" onSubmit={addStore}>
+      <h2>Add Store</h2>
         <input
           type="text"
           name="name"

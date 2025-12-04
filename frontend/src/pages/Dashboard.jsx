@@ -14,6 +14,9 @@ const [userslist, setUserList] = useState([])
 const [filter , setFilter] = useState('')
 const [stores, setStoresList] = useState([])
 const [sidebarinfo, setsidebarinfo] = useState([])
+const [unumber, setUnumber] = useState(0)
+const [snumber, setSNumber] = useState(0)
+const [rnumber, setRnumber] = useState(0)
 const navigate = useNavigate()
 
 useEffect(()=>{
@@ -33,6 +36,7 @@ useEffect(()=>{
     const data = await response.json()
     console.log(data);
     setUserList(data.result)
+    setUnumber(data.result.length)
   }
 
   async function getstores(filter) {
@@ -45,6 +49,7 @@ useEffect(()=>{
     const data = await response.json()
     console.log("stores",data);
      setStoresList(data.result)
+     setSNumber(data.result.length)
   }
 
   function logout() {
@@ -56,7 +61,15 @@ useEffect(()=>{
         return (
           <>
             <h1>Welcome Admin</h1>
-            <input type="text" name="" id="" onChange={(e)=>setFilter(e.target.value)}/>
+            <input className='searchbar' type="text" placeholder='search by name, email etc' name="" id="" onChange={(e)=>setFilter(e.target.value)}/>
+
+            <div className='numberdiv'>
+            <p className='number'>{unumber} users, </p>
+            <p className='number'>{snumber} stores</p>
+
+            </div>
+
+            <button onClick={()=>navigate('/update')}>Change Password</button>
 
             <button onClick={logout}>Logout</button>
             <button onClick={()=>navigate('/register')}>Add user</button>
@@ -76,7 +89,10 @@ useEffect(()=>{
         return (
           <div>
          <h1>Welcome {userdata.email}</h1>
-            <input type="text" name="" id="" onChange={(e)=>setFilter(e.target.value)}/>
+            <input className='searchbar' placeholder='search by name, address etc' type="text" name="" id="" onChange={(e)=>setFilter(e.target.value)}/>
+
+           <button onClick={()=>navigate('/update')}>Change Password</button>
+
 
             <button onClick={logout}>Logout</button>
             <div className="listcontainer">
